@@ -5,7 +5,7 @@ What's needed is :
 - Pip
 
 And once you have those two run this command
-`pip install requests,os,selenium,bs4`
+`pip install requests selenium bs4`
 
 ## How it works
 The script will load the page through chrome and once everything is downloaded it will load the next chapter and keep going until there isn't any chapter left (meaning you're at the end of the release of your manga)
