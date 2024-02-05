@@ -5,26 +5,24 @@ from selenium import webdriver;
 
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
-#driver.get("https://mangasee123.com/read-online/One-Piece-chapter-1105.html")
-
-#soup = BeautifulSoup(driver.page_source,'html.parser');
 
 # Besoin de pip install : Requests bs4 os et selenium
 
-#img = soup.find_all('img')
 def extract_name(url): 
       # Getting the last value of the split string
       file_name = url.split("/")[-1]
       return file_name ;
 
 def downloadFiles(url,chapter):
+    #Changing the value of the url to the desired value
     splitUrl = url.split("-");
     splitUrl[-1] = str(chapter) + ".html"
     newUrl = '-'.join(splitUrl)
     driver.get(url);
     soup = BeautifulSoup(driver.page_source,'html.parser');
     img = soup.find_all('img');
-    pathDir = "/Users/declairfaytsimon/Documents/Projects/Manga-Downloader";
+    #In pathDir put your on own file directory
+    pathDir = "";
     while len(img)>2:
         os.chdir(pathDir);
         for image in img:
@@ -47,6 +45,6 @@ def downloadFiles(url,chapter):
         downloadFiles(newUrl,chapter)
     exit()
     
-# Prints 3 images too much not too sure on how to stop it
-# Should Download them and make it into a pdf
+# What to add
+## 
 downloadFiles("https://mangasee123.com/read-online/Gantz-chapter-352.html",353);
